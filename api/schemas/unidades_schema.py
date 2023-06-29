@@ -16,3 +16,7 @@ class UnidadesSchema(ma.SQLAlchemyAutoSchema):
     unid_endereco = fields.String(required=True)
     unid_cep = fields.String(required=True)
     unid_uf = fields.String(required=True)
+    unid_calculaipi = fields.String(required=True)
+    unid_tipoprecificacao = fields.String(required=True)
+    unid_usawms = fields.String(required=True)
+    unid_vendaporembalagem = fields.String(required=True)

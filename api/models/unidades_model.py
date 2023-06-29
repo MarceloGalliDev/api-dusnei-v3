@@ -16,13 +16,17 @@ class UnidadesModel(db.Model):
     
     def to_dict(self):
         return {
-            'unid_codigo': self.unid_codigo,
-            'unid_nome': self.unid_nome,
-            'unid_razaosocial': self.unid_razaosocial,
-            'unid_cnpj': self.unid_cnpj,
-            'unid_bairro': self.unid_bairro,
-            'unid_municipio': self.unid_municipio,
-            'unid_endereco': self.unid_endereco,
-            'unid_cep': self.unid_cep,
-            'unid_uf': self.unid_uf,
+            'codigo': self.unid_codigo,
+            'fantasia': self.unid_nome,
+            'razaosocial': self.unid_razaosocial,
+            'cgc': self.unid_cnpj,
+            'cep': self.unid_cep,
+            'bairro': self.unid_bairro,
+            'endereco': self.unid_endereco,
+            'cidade': self.unid_municipio,
+            'uf': self.unid_uf,
+            'calcularipivenda': 'N',
+            'tipoprecificacao': 'P',
+            'usawms': 'N',
+            'utilizavendaporembalagem': 'S'
         }
