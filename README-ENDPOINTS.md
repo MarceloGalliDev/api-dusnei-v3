@@ -3,3 +3,4 @@
 > /departamentos 
 > /cidades
 > /unidades
+> /supervisores

@@ -7,7 +7,6 @@ class HistoricoPedidosCModel(db.Model):
     mprc_codentidade = db.Column(db.Numeric(precision=8, scale=0))
     mprc_numerodcto = db.Column(db.String(20), nullable=False)
     mprc_peso = db.Column(db.Numeric(precision=12, scale=3))
-    mprc_tran_codigo = db.Column(db.String(5))
     mprc_dcto_codigo = db.Column(db.String(4))
     mprc_status= db.Column(db.String(1))
     mprc_prvdapadrao = db.Column(db.Numeric(precision=12, scale=2))
@@ -31,4 +30,8 @@ class HistoricoPedidosCModel(db.Model):
             'codcob': self.mprc_fpgt_codigo,
             'vltotal': self.mprc_prvenda,
             'data': self.mprc_datamvto,
+<<<<<<< Updated upstream
+=======
+            'totvolume': self.mprc_peso
+>>>>>>> Stashed changes
         }
