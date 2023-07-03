@@ -18,13 +18,13 @@ mi = Migrate(app, db)
 
 api = Api(app)
 
-<<<<<<< Updated upstream
 from .models import (
     departamentos_model, 
     cidades_model, 
     unidades_model,
     vendedores_model,
     dctos_model,
+    historico_pedido_c_model,
 )
 from .views import (
     departamentos_view, 
@@ -32,8 +32,5 @@ from .views import (
     unidades_view,
     vendedores_view,
     dctos_view,
+    historico_pedido_c_view,
 )
-=======
-from .models import departamentos_model, cidades_model, unidades_model, supervisores_model
-from .views import departamentos_view, cidades_view, unidades_view, supervisores_view
->>>>>>> Stashed changes

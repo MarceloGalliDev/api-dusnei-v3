@@ -4,3 +4,9 @@
 > /cidades
 > /unidades
 > /supervisores
+> /dctos?page=2
+
+# FOREIGN_KEYS
+> transacao
+    - transacao é a união entre tabelas que compõe movimentações de pedidos
+    - operação é cada passo realizado dentro da transação.

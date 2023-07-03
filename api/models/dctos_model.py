@@ -3,7 +3,7 @@ from api import db
 class DctosModel(db.Model):
     __tablename__ = 'movdctos'
     
-    mdoc_transacao = db.Column(db.String(16), primary_key=True, nullable=False)
+    mdoc_transacao = db.Column(db.String(16), primary_key=True)
     mdoc_status = db.Column(db.String(1))
     mdoc_unid_codigo = db.Column(db.String(3))
     mdoc_dcto_codigo = db.Column(db.String(4))
@@ -14,6 +14,12 @@ class DctosModel(db.Model):
     mdoc_datacanc = db.Column(db.Date)
     mdoc_datamvto = db.Column(db.Date)
     
+    historico_pedido_c = db.relationship(
+        'HistoricoPedidosCModel', 
+        primaryjoin='DctosModel.mdoc_transacao==HistoricoPedidosCModel.mprc_transacao',
+        back_populates='dctos', 
+        # uselist=False, 
+    )
     
     def to_dict(self):
         return {
