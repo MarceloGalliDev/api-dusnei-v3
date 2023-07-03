@@ -31,6 +31,4 @@ class HistoricoPedidosCModel(db.Model):
             'codcob': self.mprc_fpgt_codigo,
             'vltotal': self.mprc_prvenda,
             'data': self.mprc_datamvto,
-            
-            'transportador': self.mprc_tran_codigo,
         }

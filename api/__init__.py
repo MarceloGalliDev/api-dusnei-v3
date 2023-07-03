@@ -18,5 +18,17 @@ mi = Migrate(app, db)
 
 api = Api(app)
 
-from .models import departamentos_model, cidades_model, unidades_model
-from .views import departamentos_view, cidades_view, unidades_view
+from .models import (
+    departamentos_model, 
+    cidades_model, 
+    unidades_model,
+    vendedores_model,
+    dctos_model,
+)
+from .views import (
+    departamentos_view, 
+    cidades_view, 
+    unidades_view,
+    vendedores_view,
+    dctos_view,
+)
