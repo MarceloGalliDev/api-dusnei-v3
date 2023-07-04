@@ -21,6 +21,7 @@ class HistoricoPedidoCSchema(ma.SQLAlchemyAutoSchema):
     codcob = fields.String(required=True)
     vltotal = fields.Number(required=True)
     data = fields.Date(required=True)
+    numcar = fields.Number(required=True)
     
 
 

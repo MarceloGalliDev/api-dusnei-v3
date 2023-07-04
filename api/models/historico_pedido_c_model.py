@@ -4,6 +4,7 @@ class HistoricoPedidosCModel(db.Model):
     __tablename__ = 'movprodc'
     
     mprc_transacao = db.Column(db.String(16), db.ForeignKey('movdctos.mdoc_transacao'), primary_key=True)
+    mprc_vend_codigo = db.Column(db.String(4), db.ForeignKey('vendedores.vend_codigo'))
     mprc_unid_codigo = db.Column(db.String(3), nullable=False)
     mprc_codentidade = db.Column(db.Numeric(precision=8, scale=0))
     mprc_numerodcto = db.Column(db.String(20), nullable=False)
@@ -14,18 +15,25 @@ class HistoricoPedidosCModel(db.Model):
     mprc_prvenda = db.Column(db.Numeric(precision=12, scale=2))
     mprc_fpgt_codigo = db.Column(db.String(3))
     mprc_datamvto = db.Column(db.Date)
+    mprc_carregamento = db.Column(db.Numeric(precision=12, scale=0))
+    mprc_obs = db.Column(db.String(600))
     
     dctos = db.relationship(
         'DctosModel', 
-        primaryjoin="HistoricoPedidosCModel.mprc_transacao==DctosModel.mdoc_transacao",
-        back_populates='historico_pedido_c', 
-        uselist=False
+        backref='related_historico_pedido_c',
+        viewonly=True
+    )
+    
+    vendedores = db.relationship(
+        'VendedoresModel', 
+        backref='related_historico_pedido_c',
+        viewonly=True
     )
     
     
     def to_dict(self):
         return {
-            'codfunccalc': self.dctos.mdoc_usucanc if self.dctos else None,
+            'codfunccanc': self.related_dctos.mdoc_usucanc if self.related_dctos else None,
             'codemitente': self.mprc_unid_codigo,
             'codcli': self.mprc_codentidade,
             'numnota': self.mprc_numerodcto,
@@ -39,4 +47,8 @@ class HistoricoPedidosCModel(db.Model):
             'codcob': self.mprc_fpgt_codigo,
             'vltotal': self.mprc_prvenda,
             'data': self.mprc_datamvto,
+            'numcar': self.mprc_carregamento,
+            'obs1': self.mprc_obs,
+            'codsupervisor': self.related_vendedores.vend_supe_codigo if self.related_vendedores else None,
+            'totvolume': self.mprc_peso,
         }

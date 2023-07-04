@@ -25,6 +25,7 @@ from .models import (
     vendedores_model,
     dctos_model,
     historico_pedido_c_model,
+    clientes_model,
 )
 from .views import (
     departamentos_view, 
@@ -33,4 +34,5 @@ from .views import (
     vendedores_view,
     dctos_view,
     historico_pedido_c_view,
+    clientes_view,
 )

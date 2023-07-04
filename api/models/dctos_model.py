@@ -16,9 +16,9 @@ class DctosModel(db.Model):
     
     historico_pedido_c = db.relationship(
         'HistoricoPedidosCModel', 
-        primaryjoin='DctosModel.mdoc_transacao==HistoricoPedidosCModel.mprc_transacao',
-        back_populates='dctos', 
-        # uselist=False, 
+        backref='related_dctos',
+        uselist=True,
+        viewonly=True
     )
     
     def to_dict(self):

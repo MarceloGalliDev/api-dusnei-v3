@@ -5,6 +5,7 @@
 > /unidades
 > /supervisores
 > /dctos?page=2
+> /historicos-pedidos-c
 
 # FOREIGN_KEYS
 > transacao

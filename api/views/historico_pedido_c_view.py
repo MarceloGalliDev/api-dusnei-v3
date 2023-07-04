@@ -11,8 +11,44 @@ class HistoricoPedidoCList(Resource):
         page = request.args.get('page', 1, type=int)
         per_page = 100
         
-        dctos = historico_pedido_c_service.listar_historico_pedido_c().paginate(page=page, per_page=per_page, error_out=False)
-        dctos_items = [item.to_dict() for item in dctos.items]
+        dctos_query = historico_pedido_c_service.listar_historico_pedido_c()
+        dctos = dctos_query.paginate(page=page, per_page=per_page, error_out=False)
+        dctos_items = [
+            {
+                'codfunccanc': item.mdoc_usucanc if item.mdoc_usucanc is not None else '',
+                'codemitente': item.mprc_unid_codigo,
+                'codcli': item.mprc_codentidade,
+                'numnota': item.mprc_numerodcto,
+                'totpeso': item.mprc_peso,
+                'origemped': (
+                    'F' if item.mprc_dcto_codigo == '6666' else (
+                        'R' if item.mprc_dcto_codigo == '7339' else (
+                            'R' if item.mprc_dcto_codigo == '7338' else ''))),
+                'posicao': (
+                    'F' if item.mprc_status == 'N' else (
+                        'C' if item.mprc_status == 'C' else (
+                            'P' if item.mprc_status == 'P' else ''))),
+                'vltabela': item.mprc_prvdapadrao,
+                'condvenda': (
+                    '1' if item.mprc_dcto_codigo == '6666' or 
+                    item.mprc_dcto_codigo == '7339' or 
+                    item.mprc_dcto_codigo == '7338' else (
+                        '5' if item.mprc_dcto_codigo == '7267' else (
+                            '11' if item.mprc_dcto_codigo == '7318' or 
+                            item.mprc_dcto_codigo == '7319' else ''))),
+                'codfilial': item.mprc_fpgt_codigo,
+                'vlatend': item.mprc_prvenda,
+                'codcob': item.mprc_fpgt_codigo,
+                'vltotal': item.mprc_prvenda,
+                'data': item.mprc_datamvto,
+                'numcar': item.mprc_carregamento,
+                'numpedrca': '',
+                'obs1': item.mprc_obs,
+                'codplapg': '',
+                'codsupervisor': item.vend_supe_codigo if item.vend_supe_codigo is not None else '',
+                'totvolume': item.mprc_peso,
+            } for item in dctos.items
+        ]
         response = make_response(json.dumps({
             'items': dctos_items,
             'total': dctos.total,

@@ -11,3 +11,4 @@ class VendedoresSchema(ma.SQLAlchemyAutoSchema):
     vend_nome: fields.String(required=True)
     vend_unid_codigo: fields.String(required=True)
     vend_func_codigo: fields.String(required=True)
+    vend_supe_codigo: fields.String(required=True)

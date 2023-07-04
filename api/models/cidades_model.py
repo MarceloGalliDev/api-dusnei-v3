@@ -8,6 +8,12 @@ class CidadesModel(db.Model):
     muni_uf = db.Column(db.String(2))
     muni_codigoibge = db.Column(db.Numeric(precision=8, scale=0))
     
+    clientes = db.relationship(
+        'ClientesModel',
+        backref='related_cidades',
+        uselist=True,
+        viewonly=True
+    )
     
     def to_dict(self):
         return {
