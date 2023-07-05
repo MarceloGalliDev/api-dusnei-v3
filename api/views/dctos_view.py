@@ -3,7 +3,6 @@ from flask_restful import Resource
 from flask import request, make_response, jsonify
 import simplejson as json
 import datetime
-from ..schemas import dctos_schema
 from ..services import dctos_service
 
 class DctosList(Resource):
