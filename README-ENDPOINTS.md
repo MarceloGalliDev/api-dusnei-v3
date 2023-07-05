@@ -1,11 +1,14 @@
 # END-POINTS
 
-> /departamentos 
 > /cidades
-> /unidades
-> /supervisores
+> /clientes
 > /dctos?page=2
+> /departamentos 
+> /funcionarios
 > /historicos-pedidos-c
+> /supervisores
+> /unidades
+> /vendedores
 
 # FOREIGN_KEYS
 > transacao

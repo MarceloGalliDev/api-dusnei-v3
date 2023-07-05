@@ -1,9 +1,9 @@
 from api import db
 
 class FuncionariosModel(db.Model):
-    __tablename__ = 'motoristas'
+    __tablename__ = 'funcionarios'
     
-    func_codpdv = db.Column(db.String(16))
+    func_tipos = db.Column(db.String(16))
     func_nome = db.Column(db.String(50))
     func_email = db.Column(db.String(100))
     func_codigo = db.Column(db.Numeric(precision=6, scale=0), primary_key=True)
@@ -16,7 +16,7 @@ class FuncionariosModel(db.Model):
     
     def to_dict(self):
         return {
-            'codsetor': self.func_codpdv,
+            'codsetor': self.func_tipos,
             'nome': self.func_nome,
             'email': self.func_email,
             'matricula': self.func_codigo,

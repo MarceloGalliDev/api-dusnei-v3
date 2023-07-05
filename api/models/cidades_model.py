@@ -18,7 +18,7 @@ class CidadesModel(db.Model):
     def to_dict(self):
         return {
             'codcidade': self.muni_codigo,
+            'codibge': self.muni_codigoibge,
             'nomecidade': self.muni_nome,
             'uf': self.muni_uf,
-            'codibge': self.muni_codigoibge,
         }

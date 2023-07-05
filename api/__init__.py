@@ -26,6 +26,8 @@ from .models import (
     dctos_model,
     historico_pedido_c_model,
     clientes_model,
+    funcionarios_model,
+    estoque_model,
 )
 from .views import (
     departamentos_view, 
@@ -35,4 +37,6 @@ from .views import (
     dctos_view,
     historico_pedido_c_view,
     clientes_view,
+    funcionarios_view,
+    estoque_view,
 )
