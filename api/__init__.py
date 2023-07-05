@@ -29,6 +29,7 @@ from .models import (
     funcionarios_model,
     estoque_model,
     produtos_model,
+    pendencias_financeiras_model,
 )
 from .views import (
     departamentos_view, 
@@ -41,4 +42,5 @@ from .views import (
     funcionarios_view,
     estoque_view,
     produtos_view,
+    pendencias_financeiras_view,
 )
