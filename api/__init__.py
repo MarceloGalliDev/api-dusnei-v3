@@ -28,6 +28,7 @@ from .models import (
     clientes_model,
     funcionarios_model,
     estoque_model,
+    produtos_model,
 )
 from .views import (
     departamentos_view, 
@@ -39,4 +40,5 @@ from .views import (
     clientes_view,
     funcionarios_view,
     estoque_view,
+    produtos_view,
 )

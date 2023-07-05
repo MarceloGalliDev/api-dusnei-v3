@@ -6,7 +6,7 @@ class ProdutosModel(db.Model):
     prod_codbarras = db.Column(db.String(13))
     prod_dpto_codigo = db.Column(db.String(3))
     prod_forn_codigo = db.Column(db.Numeric(precision=10, scale=0))
-    prod_codigo = db.Column(db.Numeric(precision=8, scale=0), primary_key=True)
+    prod_codigo = db.Column(db.Numeric(precision=8, scale=0), db.ForeignKey('produn.prun_prod_codigo'), primary_key=True)
     prod_grup_codigo = db.Column(db.String(5))
     prod_descricao = db.Column(db.String(100))
     prod_datacad = db.Column(db.Date)
@@ -18,6 +18,12 @@ class ProdutosModel(db.Model):
     prod_classe = db.Column(db.String(15))
     prod_tipo = db.Column(db.String(5))
     
+    
+    estoque = db.relationship(
+        'EstoqueModel',
+        backref='related_produtos',
+        viewonly=True,
+    )
     
     
     def to_dict(self):
@@ -31,17 +37,17 @@ class ProdutosModel(db.Model):
             'codsec': self.prod_grup_codigo,
             'descricao': self.prod_descricao,
             'dtcadastro': self.prod_datacad,
-            'embalagem': 'produn',
+            'embalagem': self.related_estoque.prun_qemb if self.related_estoque else None,
             'embalagemmaster': self.prod_qemb,
             'enviarforcavendas': 'S',
             'pesobruto': self.prod_peso,
             'pesoliq': self.prod_pesoliq,
             'pesovariavel': self.prod_balanca,
-            'qtunit': 'produn',
+            'qtunit': self.related_estoque.prun_qemb if self.related_estoque else None,
             'qtunitcx': self.prod_qemb,
             'revenda': 'S',
-            'tipoestoque': 'produn',
+            'tipoestoque': self.related_estoque.prun_setordep if self.related_estoque else None,
             'tipomerc': 'L',
-            'unidade': 'produn',
+            'unidade': self.related_estoque.prun_emb if self.related_estoque else None,
             'unidademaster': self.prod_emb,
         }

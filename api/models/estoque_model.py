@@ -12,11 +12,13 @@ class EstoqueModel(db.Model):
     prun_estoque3 = db.Column(db.Numeric(precision=15, scale=5))
     prun_estoque4 = db.Column(db.Numeric(precision=15, scale=5))
     prun_estoque5 = db.Column(db.Numeric(precision=15, scale=5))
+    prun_unid_codigo = db.Column(db.String(3))
     
     produtos = db.relationship(
         'ProdutosModel',
         backref='related_estoque',
-        viewonly=True
+        uselist=True,
+        viewonly=True,
     )
     
     def to_dict(self):
@@ -30,4 +32,5 @@ class EstoqueModel(db.Model):
             'prun_estoque3': self.prun_estoque3,
             'prun_estoque4': self.prun_estoque4,
             'prun_estoque5': self.prun_estoque5,
+            'prun_unid_codigo': self.prun_unid_codigo,
         }
