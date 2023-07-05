@@ -28,8 +28,6 @@ def listar_produtos():
     esto.prun_unid_codigo,
     ).join(
         esto, esto.prun_prod_codigo == prod.prod_codigo
-    ).filter(
-        esto.prun_unid_codigo.in_(['001','002','003'])
     ).order_by(asc(prod.prod_codigo))
     
     return produtos

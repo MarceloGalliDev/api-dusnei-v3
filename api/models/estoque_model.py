@@ -4,8 +4,8 @@ class EstoqueModel(db.Model):
     __tablename__ = 'produn'
     
     prun_prod_codigo = db.Column(db.Numeric(precision=8, scale=0), primary_key=True)
-    prun_setordep = db.Column(db.String(50)),
-    prun_emb = db.Column(db.String(2)),
+    prun_setordep = db.Column(db.String(10))
+    prun_emb = db.Column(db.String(2))
     prun_qemb = db.Column(db.Numeric(precision=5, scale=0))
     prun_estoque1 = db.Column(db.Numeric(precision=15, scale=5))
     prun_estoque2 = db.Column(db.Numeric(precision=15, scale=5))
