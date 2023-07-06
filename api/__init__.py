@@ -30,6 +30,7 @@ from .models import (
     estoque_model,
     produtos_model,
     pendencias_financeiras_model,
+    carregamentos_model,
 )
 from .views import (
     departamentos_view, 
@@ -43,4 +44,6 @@ from .views import (
     estoque_view,
     produtos_view,
     pendencias_financeiras_view,
+    cobranca_view,
+    carregamentos_view,
 )

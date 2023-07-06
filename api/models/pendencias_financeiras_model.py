@@ -16,13 +16,9 @@ class PendenciasFinanceirasModel(db.Model):
     pfin_mapacarga = db.Column(db.Numeric(precision=10, scale=0))
     pfin_nparcelas = db.Column(db.Numeric(precision=3, scale=0))
     pfin_observacao = db.Column(db.String(250))
+    pfin_datamvto = db.Column(db.Date)
+    pfin_datavcto = db.Column(db.Date)
     
-    cobranca = db.relationship(
-        'CobrancaModel', 
-        backref='related_pendfin',
-        uselist=True,
-        viewonly=True
-    )
     
     def to_dict(self):
         return {
@@ -35,5 +31,7 @@ class PendenciasFinanceirasModel(db.Model):
             'nfe': self.pfin_numerodcto,
             'parcela': self.pfin_parcela,
             'carregamento': self.pfin_mapacarga,
-            'nparcelas': self.pfin_nparcelas,            
+            'nparcelas': self.pfin_nparcelas, 
+            'lancamento': self.pfin_datamvto,
+            'vencimento': self.pfin_datavcto,           
         }
