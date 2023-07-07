@@ -1,7 +1,7 @@
 from api import db
 
-class HistoricoPedidosD2311Model(db.Model):
-    __tablename__ = 'movprodd1123'
+class HistoricoPedidosD0423Model(db.Model):
+    __tablename__ = 'movprodd0423'
     
     mprd_transacao = db.Column(db.String(16), primary_key=True, nullable=False)
     mprd_status = db.Column(db.String(1))
@@ -20,7 +20,7 @@ class HistoricoPedidosD2311Model(db.Model):
     #temos que ter a chave estrangeira
     estoque = db.relationship(
         'EstoqueModel', 
-        backref=db.backref('historicos_pedidos_d_2311', uselist=True)
+        backref=db.backref('historicos_pedidos_d_0423', uselist=True)
     )
     
     def to_dict(self):
