@@ -20,7 +20,8 @@ api = Api(app)
 
 from .models import (
     departamentos_model, 
-    cidades_model, 
+    cidades_model,
+    historico_pedido_d_0123_model, 
     unidades_model,
     vendedores_model,
     dctos_model,
@@ -31,11 +32,11 @@ from .models import (
     produtos_model,
     pendencias_financeiras_model,
     carregamentos_model,
-    historico_pedido_d_2301_model,
 )
 from .views import (
     departamentos_view, 
-    cidades_view, 
+    cidades_view,
+    historico_pedido_d_0123_view,
     unidades_view,
     vendedores_view,
     dctos_view,
@@ -47,5 +48,4 @@ from .views import (
     pendencias_financeiras_view,
     cobranca_view,
     carregamentos_view,
-    historico_pedido_d_view,
 )

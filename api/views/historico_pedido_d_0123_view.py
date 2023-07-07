@@ -3,14 +3,14 @@ from flask_restful import Resource
 from flask import request, make_response
 import simplejson as json
 import datetime
-from ..services import historico_pedido_d_service
+from ..services import historico_pedido_d_0123_service
 
-class HistoricoPedidosDList(Resource):
+class HistoricoPedidosD0123List(Resource):
     def get(self):
         page = request.args.get('page', 1, type=int)
         per_page = 100
         
-        historico_pedido_d_query = historico_pedido_d_service.listar_historico_pedido_d()
+        historico_pedido_d_query = historico_pedido_d_0123_service.listar_historico_pedido_d_0123()
         historico_pedido_d = historico_pedido_d_query.paginate(page=page, per_page=per_page, error_out=False)
         historico_pedido_d_items = [
             {
@@ -39,4 +39,4 @@ class HistoricoPedidosDList(Resource):
         response.mimetype = 'application/json'
         return response
 
-api.add_resource(HistoricoPedidosDList, '/historico_pedido_d') 
+api.add_resource(HistoricoPedidosD0123List, '/historico_pedido_d_0123') 
