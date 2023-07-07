@@ -31,6 +31,7 @@ from .models import (
     produtos_model,
     pendencias_financeiras_model,
     carregamentos_model,
+    historico_pedido_d_2301_model,
 )
 from .views import (
     departamentos_view, 
@@ -46,4 +47,5 @@ from .views import (
     pendencias_financeiras_view,
     cobranca_view,
     carregamentos_view,
+    historico_pedido_d_view,
 )
