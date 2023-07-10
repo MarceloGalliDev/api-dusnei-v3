@@ -1,7 +1,14 @@
 # END-POINTS
 
+> /carregamentos
+    - /carregamentos?page=1 ~ 2
+
 > /cidades
+    - /cidades?page=1 ~ 2
+
 > /clientes
+    - /clientes?page=1 ~ 4
+
 > /dctos?page=2
 > /departamentos 
 > /funcionarios

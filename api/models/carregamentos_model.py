@@ -29,5 +29,5 @@ class CarregamentosModel(db.Model):
             'codveiculo': self.carr_placa,
             'totpeso': self.carr_pesoprodutos,
             'totvolume': self.carr_volumeprodutos,
-            'vltotal': '',
+            'vltotal': self.carr_totalprodutos,
         }
