@@ -9,9 +9,12 @@
 > /clientes
     - /clientes?page=1 ~ 4
 
+> /funcionarios
+
+> /filiais
+
 > /dctos?page=2
 > /departamentos 
-> /funcionarios
 > /historicos-pedidos-c
 > /supervisores
 > /unidades

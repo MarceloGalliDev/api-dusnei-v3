@@ -7,7 +7,7 @@ class UnidadesModel(db.Model):
     unid_nome = db.Column(db.String(80))
     unid_razaosocial = db.Column(db.String(80))
     unid_cnpj = db.Column(db.String(14))
-    unid_bairro = db.Column(db.String(40))
+    unid_bairro = db.Column(db.String(20))
     unid_municipio = db.Column(db.String(40))
     unid_endereco = db.Column(db.String(40))
     unid_cep = db.Column(db.String(8))
