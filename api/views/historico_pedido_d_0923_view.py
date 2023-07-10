@@ -8,21 +8,21 @@ from ..services import historico_pedido_d_0923_service
 class HistoricoPedidosD0923List(Resource):
     def get(self):
         page = request.args.get('page', 1, type=int)
-        per_page = 100
+        per_page = 5000
         
         historico_pedido_d_query = historico_pedido_d_0923_service.listar_historico_pedido_d_0923()
         historico_pedido_d = historico_pedido_d_query.paginate(page=page, per_page=per_page, error_out=False)
         historico_pedido_d_items = [
             {
-                'numped': item.mprd_transacao,
+                'numped': int(item.mprd_transacao),
                 'qt': item.mprd_qtde,
                 'numseq': item.mprd_sequencial,
                 'pvenda': item.mprd_valor,
-                'codprod': item.mprd_prod_codigo,
+                'codprod': str(item.mprd_prod_codigo),
                 'ptabela': item.mprd_nextra6,
                 'percom': item.prun_comissao if item else None,
                 'data': item.mprd_datamvto,
-                'posicao': 'F' if item.mprd_status == 'N' else 'C',            
+                'posicao': 'F' if item.mprd_status == 'N' else 'C',             
             } for item in historico_pedido_d.items
         ]
         response = make_response(json.dumps({

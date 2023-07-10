@@ -11,13 +11,21 @@
 
 > /funcionarios
 
-> /filiais
-
-> /dctos?page=2
-> /departamentos 
-> /historicos-pedidos-c
-> /supervisores
 > /unidades
+
+> /veiculos
+
+> /historicos-pedidos-c
+    - /historicos-pedidos-c?page=1 ~ 28
+
+> /produtos
+    - /produtos?page=1 ~ 3
+
+> /dctos
+    - /dctos?page=1 ~ 4
+
+> /departamentos 
+> /supervisores
 > /vendedores
 
 # FOREIGN_KEYS

@@ -5,7 +5,7 @@ class UnidadesModel(db.Model):
     
     unid_codigo = db.Column(db.String(3), primary_key=True, nullable=False)
     unid_nome = db.Column(db.String(80))
-    unid_razaosocial = db.Column(db.String(80))
+    unid_razaosocial = db.Column(db.String(40))
     unid_cnpj = db.Column(db.String(14))
     unid_bairro = db.Column(db.String(20))
     unid_municipio = db.Column(db.String(40))
