@@ -21,6 +21,7 @@ api = Api(app)
 from .models import (
     departamentos_model, 
     cidades_model,
+    notas_saida_c_model,
     unidades_model,
     vendedores_model,
     dctos_model,
@@ -48,6 +49,7 @@ from .models import (
 from .views import (
     departamentos_view, 
     cidades_view,
+    notas_saida_c_view,
     unidades_view,
     vendedores_view,
     dctos_view,
@@ -71,5 +73,5 @@ from .views import (
     historico_pedido_d_1023_view,
     historico_pedido_d_1123_view,
     historico_pedido_d_1223_view,
-    veiculos_view,
+    veiculos_view
 )

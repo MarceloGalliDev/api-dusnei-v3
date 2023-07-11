@@ -1,10 +1,10 @@
-from ..models import historico_pedido_c_model, dctos_model, notas_c_model, clientes_model, pedidos_pendentes_c_model
+from ..models import historico_pedido_c_model, dctos_model, clientes_model, notas_saida_c_model, pedidos_pendentes_c_model
 from sqlalchemy.orm import aliased
 from api import db
 from sqlalchemy import desc
 
 def listar_notas_c():
-    nota = aliased(notas_c_model.NotasSaidaCModel)
+    nota = aliased(notas_saida_c_model.NotasSaidaCModel)
     hist = aliased(historico_pedido_c_model.HistoricoPedidosCModel)
     dcto = aliased(dctos_model.DctosModel)
     clie = aliased(clientes_model.ClientesModel)
