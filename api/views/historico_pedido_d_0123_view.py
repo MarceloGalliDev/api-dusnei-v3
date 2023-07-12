@@ -57,7 +57,8 @@ class HistoricoPedidosD0123List(Resource):
         return response
     
     def post(self, data):
-        url = os.getenv('URL_HISTORICOS_PEDIDOS_ITENS')
+        url_post = os.getenv('URL_HISTORICOS_PEDIDOS_ITENS')
+        url_get = os.getenv('URL_HISTORICOS_PEDIDOS_ITENS_TODOS')
         token = os.getenv('TOKEN')
         headers = {
             'Content-Type': 'application/json',
@@ -74,8 +75,11 @@ class HistoricoPedidosD0123List(Resource):
                 end = start + 5000
                 dict_data = data[start:end]
                 
+                for item in dict_data:
+                    response_get = requests.get(url_get)
+                
                 response = requests.post(
-                    url, 
+                    url_post, 
                     headers=headers, 
                     data=json.dumps(
                         dict_data, 

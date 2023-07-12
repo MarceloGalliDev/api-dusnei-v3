@@ -1,34 +1,158 @@
 # END-POINTS
 
-> /carregamentos
-    - /carregamentos?page=1 ~ 2
+>### Carregamentos
+>>##### entrada
+>> - /carregamentos
+>> - /carregamentos?page={page}
+>
+>>##### saída
+>> - /carregamentos
+>> - /carregamentos/todos 
+>> - /carregamentos/{numcar} 
+(numcar = carr_numero)
+---
 
-> /cidades
-    - /cidades?page=1 ~ 2
+>### Cidades
+>>##### entrada
+>> - /cidades
+>
+>>##### saída
+>> - /cidades
+>> - /cidades?page={page}
+>> - /cidades/todos
+>> - /cidades/{codcidade}
+(codcidade = muni_codigo)
+---
 
-> /clientes
-    - /clientes?page=1 ~ 4
+>### Clientes
+>>##### entrada
+>> - /clientes
+>> - /clientes?page={page}
+>
+>>##### saída
+>> - /clientes
+>> - /clientes/todos
+>> - /clientes/{codclie}
+(codclie = clie_codigo)
+---
 
-> /funcionarios
+>### Funcionários
+>>##### entrada
+>> - /funcionarios
+>> - /funcionarios?page={page}
+>
+>>##### saída
+>> - /emprs
+>> - /emprs/todos
+>> - /emprs/{matricula}
+(matricula = func_codigo)
+---
 
-> /unidades
+>### Unidades / Filiais
+>>##### entrada
+>> - /unidades
+>
+>>##### saída
+>> - /filiais
+>> - /filiais/todos
+>> - /filiais/{codigo}
+(codigo = unid_codigo)
+---
 
-> /veiculos
+>### Historico Pedidos C
+>>##### entrada
+>> - /historicos-pedidos-c
+>> - /historicos-pedidos-c?page={page}
+>
+>>##### saída
+>> - /historicopedidoscapas
+>> - /historicopedidoscapas/todos
+>> - /historicopedidoscapas/
+(numped = mprc_transacao)
+---
 
-> /historicos-pedidos-c
-    - /historicos-pedidos-c?page=1 ~ 28
+>### Historico Pedidos D
+>>##### entrada
+>> - /historicos-pedidos-d-{mmaa}
+>> - /historicos-pedidos-d-{mmaa}?page={page}
+>
+>>##### saída
+>> - /historicopedidositens
+>> - /historicopedidositens/todos
+>> - /historicopedidositens/{numped}/{codprod}/{numseq}
+(numped = mprd_transacao)
+(codprod = mprd_prod_codigo)
+(numseq = mprd_sequencial)
+---
 
-> /produtos
-    - /produtos?page=1 ~ 3
+>### Notas Saida C
+>>##### entrada
+>> - /notas-saida-c
+>> - /notas-saida-c?page={page}
+>
+>>##### saída
+>> - /notassaidacapas
+>> - /notassaidacapas/todos
+>> - /notassaidacapas/{numtransvenda}
+(numtransvenda = nfec_transacao)
+---
 
-> /dctos
-    - /dctos?page=1 ~ 4
+>### Notas Saida D
+>>##### entrada
+>> - /notas-saida-d
+>> - /notas-saida-d?page={page}
+>
+>>##### saída
+>> - /notassaidaitens
+>> - /notassaidaitens/todos
+---
 
-> /departamentos 
-> /supervisores
-> /vendedores
+>### Produtos
+>>##### entrada
+>> - /produtos
+>> - /produtos?page={page}
+>
+>>##### saída
+>> - /produtos
+>> - /produtos/todos
+>> - /produtos/{codprod}
+(codprod = prod_codigo)
+---
 
-# FOREIGN_KEYS
-> transacao
-    - transacao é a união entre tabelas que compõe movimentações de pedidos
-    - operação é cada passo realizado dentro da transação.
+>### Vendedores / Usuaris
+>>##### entrada
+>> - /vendedores
+>
+>>##### saída
+>> - /usuaris
+>> - /usuaris/todos
+>> - /usuaris/{codusur}
+(codusur = vend_codigo)
+---
+
+>### Veiculos
+>>##### entrada
+>> - /veiculos
+>
+>>##### saída
+>> - /veiculos
+>> - /veiculos/todos
+>> - /veiculos/{codveiculo}
+(codveiculo = tran_codigo)
+---
+
+>### Documentos
+>>##### entrada
+>> - /dctos
+>> - /dctos?page={page}
+---
+
+>### Departamentos
+>>##### entrada
+>> - /departamentos 
+---
+
+>### Supervisores
+>>##### entrada
+>> - /supervisores
+---
