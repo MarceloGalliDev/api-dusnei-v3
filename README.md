@@ -10,7 +10,6 @@
 >> - /carregamentos/todos 
 >> - /carregamentos/{numcar} 
 (numcar = carr_numero)
----
 
 >### Cidades
 >>##### entrada
@@ -22,7 +21,6 @@
 >> - /cidades/todos
 >> - /cidades/{codcidade}
 (codcidade = muni_codigo)
----
 
 >### Clientes
 >>##### entrada
@@ -34,7 +32,6 @@
 >> - /clientes/todos
 >> - /clientes/{codclie}
 (codclie = clie_codigo)
----
 
 >### Funcionários
 >>##### entrada
@@ -46,7 +43,6 @@
 >> - /emprs/todos
 >> - /emprs/{matricula}
 (matricula = func_codigo)
----
 
 >### Unidades / Filiais
 >>##### entrada
@@ -57,7 +53,6 @@
 >> - /filiais/todos
 >> - /filiais/{codigo}
 (codigo = unid_codigo)
----
 
 >### Historico Pedidos C
 >>##### entrada
@@ -69,7 +64,6 @@
 >> - /historicopedidoscapas/todos
 >> - /historicopedidoscapas/
 (numped = mprc_transacao)
----
 
 >### Historico Pedidos D
 >>##### entrada
@@ -83,7 +77,6 @@
 (numped = mprd_transacao)
 (codprod = mprd_prod_codigo)
 (numseq = mprd_sequencial)
----
 
 >### Notas Saida C
 >>##### entrada
@@ -95,7 +88,6 @@
 >> - /notassaidacapas/todos
 >> - /notassaidacapas/{numtransvenda}
 (numtransvenda = nfec_transacao)
----
 
 >### Notas Saida D
 >>##### entrada
@@ -105,7 +97,6 @@
 >>##### saída
 >> - /notassaidaitens
 >> - /notassaidaitens/todos
----
 
 >### Produtos
 >>##### entrada
@@ -117,7 +108,6 @@
 >> - /produtos/todos
 >> - /produtos/{codprod}
 (codprod = prod_codigo)
----
 
 >### Vendedores / Usuaris
 >>##### entrada
@@ -128,7 +118,6 @@
 >> - /usuaris/todos
 >> - /usuaris/{codusur}
 (codusur = vend_codigo)
----
 
 >### Veiculos
 >>##### entrada
@@ -139,20 +128,28 @@
 >> - /veiculos/todos
 >> - /veiculos/{codveiculo}
 (codveiculo = tran_codigo)
----
 
 >### Documentos
 >>##### entrada
 >> - /dctos
 >> - /dctos?page={page}
----
 
 >### Departamentos
 >>##### entrada
 >> - /departamentos 
----
 
 >### Supervisores
 >>##### entrada
 >> - /supervisores
 ---
+
+>### Tratamento de erros
+> captura e tratamento via log
+---
+
+>### Criptografia
+> enviroments data
+---
+
+>### Token 
+> requisição mediante a token access e refresh
