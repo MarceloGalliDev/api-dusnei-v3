@@ -8,7 +8,7 @@ from ..services import historico_pedido_d_1023_service
 class HistoricoPedidosD1023List(Resource):
     def get(self):
         page = request.args.get('page', 1, type=int)
-        per_page = 5000
+        per_page = 150000
         
         historico_pedido_d_query = historico_pedido_d_1023_service.listar_historico_pedido_d_1023()
         historico_pedido_d = historico_pedido_d_query.paginate(page=page, per_page=per_page, error_out=False)

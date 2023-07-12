@@ -4,11 +4,18 @@ from flask import request, make_response
 import simplejson as json
 import datetime
 from ..services import historico_pedido_d_0123_service
+from dotenv import load_dotenv
+import os
+import logging
+import time
+import requests
+import traceback
+
 
 class HistoricoPedidosD0123List(Resource):
     def get(self):
         page = request.args.get('page', 1, type=int)
-        per_page = 5000
+        per_page = 150000
                 
         historico_pedido_d_query = historico_pedido_d_0123_service.listar_historico_pedido_d_0123()
         historico_pedido_d = historico_pedido_d_query.paginate(page=page, per_page=per_page, error_out=False)
@@ -36,8 +43,62 @@ class HistoricoPedidosD0123List(Resource):
             ) else None), 
             200
         )
+        
+        logging.basicConfig(
+            filename='api_post_log.txt', 
+            level=logging.INFO, 
+            format='%(asctime)s %(message)s', 
+            datefmt='%m/%d/%Y %I:%M:%S %p'
+        )
+        
+        self.post(historico_pedido_d_items)
 
         response.mimetype = 'application/json'
         return response
+    
+    def post(self, data):
+        url = os.getenv('URL_HISTORICOS_PEDIDOS_ITENS')
+        token = os.getenv('TOKEN')
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': f'Bearer {token}'
+        }
+        
+        dados_iterados = len(data) // 5000
+        if len(data) % 5000:
+            dados_iterados += 1
+            
+        for i in range(dados_iterados):
+            try:
+                start = i * 5000
+                end = start + 5000
+                dict_data = data[start:end]
+                
+                response = requests.post(
+                    url, 
+                    headers=headers, 
+                    data=json.dumps(
+                        dict_data, 
+                        ensure_ascii=False, 
+                        use_decimal=True, 
+                        indent=4, 
+                        default=lambda o: o.isoformat() if isinstance(
+                            o, 
+                            (datetime.date, datetime.datetime)
+                        ) else 
+                            None
+                        ) 
+                )
+                response.raise_for_status()
+                
+                logging.info(f'Dados {i+1} enviados com sucesso')
+                
+                if i != dados_iterados - 1:
+                    time.sleep(30)
+            except requests.exceptions.HTTPError as err:
+                logging.error(f'HTTP Erro: {err}')
+            except Exception as err:
+                logging.error(f'API Erro: {err}')
+                logging.error(f'Full exception: {traceback.format_exc()}')
 
 api.add_resource(HistoricoPedidosD0123List, '/historico-pedido-d-0123') 

@@ -1,0 +1,51 @@
+07/12/2023 10:30:48 AM API Erro: Object of type date is not JSON serializable
+07/12/2023 10:30:48 AM Full exception: Traceback (most recent call last):
+  File "C:\Users\Windows\Documents\Python\api-dusnei-v3\api\views\historico_pedido_d_0123_view.py", line 77, in post
+    response = requests.post(url, headers=headers, data=json.dumps(dict_data))
+  File "C:\Users\Windows\Documents\Python\api-dusnei-v3\.venv\lib\site-packages\simplejson\__init__.py", line 378, in dumps
+    return _default_encoder.encode(obj)
+  File "C:\Users\Windows\Documents\Python\api-dusnei-v3\.venv\lib\site-packages\simplejson\encoder.py", line 298, in encode
+    chunks = self.iterencode(o)
+  File "C:\Users\Windows\Documents\Python\api-dusnei-v3\.venv\lib\site-packages\simplejson\encoder.py", line 379, in iterencode
+    return _iterencode(o, 0)
+  File "C:\Users\Windows\Documents\Python\api-dusnei-v3\.venv\lib\site-packages\simplejson\encoder.py", line 274, in default
+    raise TypeError('Object of type %s is not JSON serializable' %
+TypeError: Object of type date is not JSON serializable
+
+07/12/2023 10:30:48 AM 127.0.0.1 - - [12/Jul/2023 10:30:48] "GET /historico-pedido-d-0123 HTTP/1.1" 200 -
+07/12/2023 10:35:58 AM  * Detected change in 'C:\\Users\\Windows\\Documents\\Python\\api-dusnei-v3\\api\\views\\historico_pedido_d_0123_view.py', reloading
+07/12/2023 10:38:16 AM Dados 1 enviados com sucesso
+07/12/2023 10:38:16 AM 127.0.0.1 - - [12/Jul/2023 10:38:16] "GET /historico-pedido-d-0123 HTTP/1.1" 200 -
+07/12/2023 10:45:07 AM  * Detected change in 'C:\\Users\\Windows\\Documents\\Python\\api-dusnei-v3\\api\\views\\historico_pedido_d_0123_view.py', reloading
+07/12/2023 10:52:57 AM Dados 1 enviados com sucesso
+07/12/2023 10:53:34 AM Dados 2 enviados com sucesso
+07/12/2023 10:54:11 AM Dados 3 enviados com sucesso
+07/12/2023 10:54:45 AM Dados 4 enviados com sucesso
+07/12/2023 10:55:20 AM Dados 5 enviados com sucesso
+07/12/2023 10:55:54 AM Dados 6 enviados com sucesso
+07/12/2023 10:56:33 AM Dados 7 enviados com sucesso
+07/12/2023 10:57:12 AM Dados 8 enviados com sucesso
+07/12/2023 10:57:48 AM Dados 9 enviados com sucesso
+07/12/2023 10:58:26 AM Dados 10 enviados com sucesso
+07/12/2023 10:59:01 AM Dados 11 enviados com sucesso
+07/12/2023 10:59:38 AM Dados 12 enviados com sucesso
+07/12/2023 11:00:14 AM Dados 13 enviados com sucesso
+07/12/2023 11:00:52 AM Dados 14 enviados com sucesso
+07/12/2023 11:01:32 AM Dados 15 enviados com sucesso
+07/12/2023 11:02:07 AM Dados 16 enviados com sucesso
+07/12/2023 11:02:45 AM Dados 17 enviados com sucesso
+07/12/2023 11:03:21 AM Dados 18 enviados com sucesso
+07/12/2023 11:03:59 AM Dados 19 enviados com sucesso
+07/12/2023 11:04:35 AM Dados 20 enviados com sucesso
+07/12/2023 11:05:12 AM Dados 21 enviados com sucesso
+07/12/2023 11:05:48 AM Dados 22 enviados com sucesso
+07/12/2023 11:06:26 AM Dados 23 enviados com sucesso
+07/12/2023 11:07:08 AM Dados 24 enviados com sucesso
+07/12/2023 11:07:47 AM Dados 25 enviados com sucesso
+07/12/2023 11:08:24 AM Dados 26 enviados com sucesso
+07/12/2023 11:09:00 AM Dados 27 enviados com sucesso
+07/12/2023 11:09:39 AM Dados 28 enviados com sucesso
+07/12/2023 11:10:15 AM Dados 29 enviados com sucesso
+07/12/2023 11:10:53 AM Dados 30 enviados com sucesso
+07/12/2023 11:10:53 AM 127.0.0.1 - - [12/Jul/2023 11:10:53] "GET /historico-pedido-d-0123 HTTP/1.1" 200 -
+07/12/2023 11:31:59 AM  * Detected change in 'C:\\Users\\Windows\\Documents\\Python\\api-dusnei-v3\\api\\views\\historico_pedido_d_0223_view.py', reloading
