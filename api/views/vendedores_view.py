@@ -8,7 +8,7 @@ from ..services import vendedores_service
 class VendedoresList(Resource):
     def get(self):
         page = request.args.get('page', 1, type=int)
-        per_page = 100
+        per_page = 5000
         
         vendedores_query = vendedores_service.listar_vendedores()
         vendedores = vendedores_query.paginate(page=page, per_page=per_page, error_out=False)
@@ -23,16 +23,7 @@ class VendedoresList(Resource):
                 'usadebcredrca': 'N'
             } for item in vendedores.items
         ]
-        response = make_response(json.dumps({
-            'items': vendedores_items,
-            'total': vendedores.total,
-            'page': vendedores.page,
-            'pages': vendedores.pages,
-            'has_prev': vendedores.has_prev,
-            'has_next': vendedores.has_next,
-            'prev_num': vendedores.prev_num,
-            'next_num': vendedores.next_num
-        }, ensure_ascii=False, use_decimal=True, indent=4, default=lambda o: o.isoformat() if isinstance(o, (datetime.date, datetime.datetime)) else None), 200)
+        response = make_response(json.dumps(vendedores_items, ensure_ascii=False, use_decimal=True, indent=4, default=lambda o: o.isoformat() if isinstance(o, (datetime.date, datetime.datetime)) else None), 200)
 
         response.mimetype = 'application/json'
         return response 
