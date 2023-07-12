@@ -8,7 +8,7 @@ from ..services import funcionarios_service
 class FuncionariosList(Resource):
     def get(self):
         page = request.args.get('page', 1, type=int)
-        per_page = 100
+        per_page = 5000
         
         funcionarios_query = funcionarios_service.listar_funcionarios()
         funcionarios = funcionarios_query.paginate(page=page, per_page=per_page, error_out=False)

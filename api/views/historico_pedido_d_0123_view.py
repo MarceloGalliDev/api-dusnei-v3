@@ -57,7 +57,7 @@ class HistoricoPedidosD0123List(Resource):
         return response
     
     def post(self, data):
-        url_post = os.getenv('URL_HISTORICOS_PEDIDOS_ITENS')
+        url = os.getenv('URL_HISTORICOS_PEDIDOS_ITENS')
         url_get = os.getenv('URL_HISTORICOS_PEDIDOS_ITENS_TODOS')
         token = os.getenv('TOKEN')
         headers = {
@@ -76,26 +76,44 @@ class HistoricoPedidosD0123List(Resource):
                 dict_data = data[start:end]
                 
                 for item in dict_data:
-                    response_get = requests.get(url_get)
-                
-                response = requests.post(
-                    url_post, 
-                    headers=headers, 
-                    data=json.dumps(
-                        dict_data, 
-                        ensure_ascii=False, 
-                        use_decimal=True, 
-                        indent=4, 
-                        default=lambda o: o.isoformat() if isinstance(
-                            o, 
-                            (datetime.date, datetime.datetime)
-                        ) else 
-                            None
-                        ) 
-                )
-                response.raise_for_status()
-                
-                logging.info(f'Dados {i+1} enviados com sucesso')
+                    response_get = requests.get(url + '/' + str(item['numped']) + '/' + str(item['codprod']) + '/' + str(item['numseq']))
+                    if response_get.status_code == 200:
+                        dados_existentes = response_get.json()
+                        if dados_existentes != item:
+                            response = requests.put(url, headers=headers, data=json.dumps(
+                                item, 
+                                ensure_ascii=False, 
+                                use_decimal=True, 
+                                indent=4, 
+                                default=lambda o: o.isoformat() 
+                                if isinstance(
+                                    o, 
+                                    (datetime.date, datetime.datetime)
+                                ) else 
+                                    None
+                                )
+                            )
+                            response.raise_for_status()
+                            logging.info(f'Dados {i+1} enviados com sucesso')
+                        else:
+                            response = requests.post(
+                                url, 
+                                headers=headers, 
+                                data=json.dumps(
+                                    dict_data, 
+                                    ensure_ascii=False, 
+                                    use_decimal=True, 
+                                    indent=4, 
+                                    default=lambda o: o.isoformat() 
+                                    if isinstance(
+                                        o, 
+                                        (datetime.date, datetime.datetime)
+                                    ) else 
+                                        None
+                                    ) 
+                            )
+                            response.raise_for_status()
+                            logging.info(f'Dados {i+1} enviados com sucesso')
                 
                 if i != dados_iterados - 1:
                     time.sleep(30)
