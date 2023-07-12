@@ -14,11 +14,11 @@ class NotasCList(Resource):
         notas_c = notas_c_query.paginate(page=page, per_page=per_page, error_out=False)
         notas_c_items = [
             {
-                'numcar': item.movprodc.mprc_carregamento if item.movprodc else None,
+                'numcar': item.mprc_carregamento,
                 'numnota': str(item.nfec_numerodcto),
                 'serie': item.nfec_serie,
-                'codusur': str(item.movdctos.mdoc_usulcto if item.movdctos else None),
-                'condvenda': int(item.movprodc.mprc_dcto_codigo if item.movprodc else None),
+                'codusur': str(item.mdoc_usulcto),
+                'condvenda': int(item.mprc_dcto_codigo),
                 'numtransvenda': int(item.nfec_transacao),
                 'dtsaida': item.nfec_datasaida,
                 'dtfat': item.nfec_datamvto,
@@ -26,8 +26,8 @@ class NotasCList(Resource):
                 'vltotal': item.nfec_totaldcto,
                 'especie': 'NF',
                 'codclie': str(item.nfec_codentidade),
-                'numped': item.pedvendac.pvec_numero if item.pedvendac else None,
-                'codcob': item.clientes.clie_lpgt_codigo if item.clientes else None,        
+                'numped': int(item.nfec_transacao),
+                'codcob': item.clie_lpgt_codigo,        
                 'codplpag': item.nfec_fpgt_codigo,
                 'codfilial': item.nfec_unid_codigo,
                 'numseq': item.nfec_idlote,

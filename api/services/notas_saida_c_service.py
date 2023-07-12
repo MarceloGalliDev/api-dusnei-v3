@@ -1,4 +1,4 @@
-from ..models import historico_pedido_c_model, dctos_model, clientes_model, notas_saida_c_model, pedidos_pendentes_c_model
+from ..models import historico_pedido_c_model, dctos_model, clientes_model, notas_saida_c_model
 from sqlalchemy.orm import aliased
 from api import db
 from sqlalchemy import desc
@@ -8,9 +8,9 @@ def listar_notas_c():
     hist = aliased(historico_pedido_c_model.HistoricoPedidosCModel)
     dcto = aliased(dctos_model.DctosModel)
     clie = aliased(clientes_model.ClientesModel)
-    pedp = aliased(pedidos_pendentes_c_model.PedidosPendentesCModel)
     
     notas = db.session.query(
+        nota.nfec_transacao,
         nota.nfec_numerodcto,
         nota.nfec_serie,
         nota.nfec_datasaida,
@@ -27,18 +27,15 @@ def listar_notas_c():
         hist.mprc_carregamento,
         hist.mprc_dcto_codigo,
         dcto.mdoc_usulcto,
-        pedp.pvec_numero,
         clie.clie_lpgt_codigo,
+    ).select_from(nota).join(
+        hist, nota.nfec_transacao == hist.mprc_transacao
     ).join(
-        hist
+        dcto, nota.nfec_transacao == dcto.mdoc_transacao
     ).join(
-        dcto
-    ).join(
-        clie
-    ).join(
-        pedp
+        clie, nota.nfec_codentidade == clie.clie_codigo
     ).filter(
-        nota.nfec_es.in_(['S']),
+        nota.nfec_es == 'S',
         nota.nfec_datamvto >= '2023-01-01'
     ).order_by(desc(nota.nfec_datamvto))
     

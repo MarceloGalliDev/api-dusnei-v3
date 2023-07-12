@@ -7,7 +7,6 @@ class NotasSaidaCModel(db.Model):
         db.String(16), 
         db.ForeignKey('movprodc.mprc_transacao'), 
         db.ForeignKey('movdctos.mdoc_transacao'), 
-        db.ForeignKey('pedvendac.pvec_transacaobx'), 
         primary_key=True
     )
     nfec_numerodcto = db.Column(db.String(20))
@@ -27,8 +26,7 @@ class NotasSaidaCModel(db.Model):
     nfec_pesoliq = db.Column(db.Numeric(precision=18, scale=6))
     nfec_volumes = db.Column(db.Numeric(precision=18, scale=6))
     
-    
-    
+       
     historico_pedido_c = db.relationship(
         'HistoricoPedidosCModel',
         backref=db.backref('related_notas_saida_c', uselist=True),
@@ -37,12 +35,6 @@ class NotasSaidaCModel(db.Model):
     
     dctos = db.relationship(
         'DctosModel',
-        backref=db.backref('related_notas_saida_c', uselist=True),
-        viewonly=True,
-    )
-    
-    pedidos_pendentes_c = db.relationship(
-        'PedidosPendentesCModel',
         backref=db.backref('related_notas_saida_c', uselist=True),
         viewonly=True,
     )
@@ -68,7 +60,7 @@ class NotasSaidaCModel(db.Model):
             'vltotal': self.nfec_totaldcto,
             'especie': 'NF',
             'codclie': str(self.nfec_codentidade),
-            'numped': self.pedvendac.pvec_numero if self.pedvendac else None,
+            'numped': int(self.nfec_transacao),
             'codcob': self.clientes.clie_lpgt_codigo if self.clientes else None,        
             'codplpag': self.nfec_fpgt_codigo,
             'codfilial': self.nfec_unid_codigo,

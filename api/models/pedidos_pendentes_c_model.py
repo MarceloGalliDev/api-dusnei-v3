@@ -14,7 +14,7 @@ class PedidosPendentesCModel(db.Model):
     pvec_vend_codigo = db.Column(db.String(4))
     pvec_rota_codigo = db.Column(db.String(3))
     pvec_fpgto_codigo = db.Column(db.String(3))
-    pvec_transacaobx = db.Column(db.String(16))#ligacao com movprodc
+    pvec_transacaobx = db.Column(db.String(16))
     pvec_usua_codigo = db.Column(db.Numeric(precision=5, scale=0))
     
       
