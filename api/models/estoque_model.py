@@ -15,13 +15,7 @@ class EstoqueModel(db.Model):
     prun_unid_codigo = db.Column(db.String(3))
     prun_comissao = db.Column(db.Numeric(precision=15, scale=5))
     
-    produtos = db.relationship(
-        'ProdutosModel',
-        backref='related_estoque',
-        uselist=True,
-        viewonly=True,
-    )
-       
+      
     def to_dict(self):
         return {
             'prun_prod_codigo': self.prun_prod_codigo,

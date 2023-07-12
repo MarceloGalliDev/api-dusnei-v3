@@ -17,26 +17,28 @@ class ProdutosModel(db.Model):
     prod_qemb = db.Column(db.Numeric(precision=5, scale=0))
     prod_classe = db.Column(db.String(15))
     prod_tipo = db.Column(db.String(5))
-    
+    prod_codigoncm = db.Column(db.String(10))
     
     estoque = db.relationship(
         'EstoqueModel',
-        backref='related_produtos',
+        backref=db.backref('related_produtos', uselist=True),
         viewonly=True,
     )
-    
+   
     
     def to_dict(self):
         return {
             'aceitavendafracao': 'S',
-            'classificfiscal': 'N',
+            'classificfiscal': self.prod_codigoncm,
             'codauxiliar': self.prod_codbarras,
             'codepto': self.prod_dpto_codigo,
+            'codfilialretira': self.estoque.prun_unid_codigo if self.estoque else None,
             'codfornec': self.prod_forn_codigo,
             'codprod': self.prod_codigo,
             'codsec': self.prod_grup_codigo,
             'descricao': self.prod_descricao,
             'dtcadastro': self.prod_datacad,
+            'dtvenc': '',
             'embalagem': self.estoque.prun_qemb if self.estoque else None,
             'embalagemmaster': self.prod_qemb,
             'enviarforcavendas': 'S',

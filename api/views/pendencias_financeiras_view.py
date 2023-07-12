@@ -8,7 +8,7 @@ from ..services import pendencias_financeiras_service
 class PendenciasFinanceirasList(Resource):
     def get(self):
         page = request.args.get('page', 1, type=int)
-        per_page = 100
+        per_page = 5000
         
         pendfin = pendencias_financeiras_service.listar_pendencias_financeiras().paginate(page=page, per_page=per_page, error_out=False)
         pendfin_items = [item.to_dict() for item in pendfin.items]
