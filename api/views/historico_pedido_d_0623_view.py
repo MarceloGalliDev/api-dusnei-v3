@@ -25,18 +25,19 @@ class HistoricoPedidosD0623List(Resource):
                 'posicao': 'F' if item.mprd_status == 'N' else 'C',             
             } for item in historico_pedido_d.items
         ]
-        response = make_response(json.dumps({
-            'items': historico_pedido_d_items,
-            'total': historico_pedido_d.total,
-            'page': historico_pedido_d.page,
-            'pages': historico_pedido_d.pages,
-            'has_prev': historico_pedido_d.has_prev,
-            'has_next': historico_pedido_d.has_next,
-            'prev_num': historico_pedido_d.prev_num,
-            'next_num': historico_pedido_d.next_num
-        }, ensure_ascii=False, use_decimal=True, indent=4, default=lambda o: o.isoformat() if isinstance(o, (datetime.date, datetime.datetime)) else None), 200)
+        response = make_response(json.dumps(
+            historico_pedido_d_items,
+            ensure_ascii=False, 
+            use_decimal=True, 
+            indent=4, 
+            default=lambda o: o.isoformat() if isinstance(
+                o, 
+                (datetime.date, datetime.datetime)
+            ) else None), 
+            200
+        )
 
         response.mimetype = 'application/json'
         return response
 
-api.add_resource(HistoricoPedidosD0623List, '/historico_pedido_d_0623') 
+api.add_resource(HistoricoPedidosD0623List, '/historico-pedido-d-0623') 
