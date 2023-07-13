@@ -4,7 +4,6 @@ from flask import request, make_response
 import simplejson as json
 import datetime
 from ..services import historico_pedido_d_0123_service
-from dotenv import load_dotenv
 import os
 import logging
 import time

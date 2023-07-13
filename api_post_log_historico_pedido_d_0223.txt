@@ -1,3 +1,0 @@
-07/12/2023 03:25:15 PM 127.0.0.1 - - [12/Jul/2023 15:25:15] "GET /clientes HTTP/1.1" 200 -
-07/12/2023 04:30:41 PM  * Detected change in 'C:\\Users\\Windows\\Documents\\Python\\api-dusnei-v3\\api\\views\\historico_pedido_d_0223_view.py', reloading
-07/12/2023 05:05:12 PM  * Detected change in 'C:\\Users\\Windows\\Documents\\Python\\api-dusnei-v3\\api\\views\\historico_pedido_d_0123_view.py', reloading
