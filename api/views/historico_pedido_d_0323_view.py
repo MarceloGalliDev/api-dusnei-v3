@@ -13,7 +13,7 @@ import traceback
 class HistoricoPedidosD0323List(Resource):
     def get(self):
         page = request.args.get('page', 1, type=int)
-        per_page = 150000
+        per_page = 200000
         
         historico_pedido_d_query = historico_pedido_d_0323_service.listar_historico_pedido_d_0323()
         historico_pedido_d = historico_pedido_d_query.paginate(page=page, per_page=per_page, error_out=False)
@@ -32,10 +32,10 @@ class HistoricoPedidosD0323List(Resource):
         ]
         
         logging.basicConfig(
-            filename='api_post_log_historico_pedido_d_0123.txt', 
+            filename='api_post_log_historico_pedido_d_0323.txt', 
             level=logging.INFO, 
             format='%(asctime)s %(message)s', 
-            datefmt='%m/%d/%Y  %p%I:%M:%S'
+            datefmt='%m/%d/%Y  %p-%I:%M:%S'
         )
         
         self.post(historico_pedido_d_items)
