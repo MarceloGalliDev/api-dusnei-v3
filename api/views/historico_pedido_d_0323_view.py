@@ -35,7 +35,7 @@ class HistoricoPedidosD0323List(Resource):
             filename='api_post_log_historico_pedido_d_0323.txt', 
             level=logging.INFO, 
             format='%(asctime)s %(message)s', 
-            datefmt='%m/%d/%Y  %p-%I:%M:%S'
+            datefmt='%d/%m/%Y %I:%M:%S %p -'
         )
         
         self.post(historico_pedido_d_items)
