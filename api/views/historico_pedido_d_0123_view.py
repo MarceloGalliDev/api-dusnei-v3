@@ -45,7 +45,7 @@ class HistoricoPedidosD0123List(Resource):
         )
         
         logging.basicConfig(
-            filename='api_post_log.txt', 
+            filename='api_post_log_historico_pedido_d_0123.txt', 
             level=logging.INFO, 
             format='%(asctime)s %(message)s', 
             datefmt='%m/%d/%Y %I:%M:%S %p'
