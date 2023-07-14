@@ -4,3 +4,45 @@
 07/13/2023 02:09:02 PM -  Dados 1 enviado com sucesso!
 07/13/2023 02:09:30 PM -  Dados 2 enviado com sucesso!
 07/13/2023 02:09:48 PM -   * Detected change in 'C:\\Users\\Windows\\Documents\\Python\\api-dusnei-v3\\api\\views\\historico_pedido_d_0323_view.py', reloading
+13/07/2023 02:11:24 PM - Dados 1 enviado com sucesso!
+13/07/2023 02:11:48 PM - Dados 2 enviado com sucesso!
+13/07/2023 02:12:16 PM - Dados 3 enviado com sucesso!
+13/07/2023 02:12:43 PM - Dados 4 enviado com sucesso!
+13/07/2023 02:13:11 PM - Dados 5 enviado com sucesso!
+13/07/2023 02:13:39 PM - Dados 6 enviado com sucesso!
+13/07/2023 02:14:03 PM - Dados 7 enviado com sucesso!
+13/07/2023 02:14:31 PM - Dados 8 enviado com sucesso!
+13/07/2023 02:14:59 PM - Dados 9 enviado com sucesso!
+13/07/2023 02:15:25 PM - Dados 10 enviado com sucesso!
+13/07/2023 02:15:53 PM - Dados 11 enviado com sucesso!
+13/07/2023 02:16:24 PM - Dados 12 enviado com sucesso!
+13/07/2023 02:16:49 PM - Dados 13 enviado com sucesso!
+13/07/2023 02:17:14 PM - Dados 14 enviado com sucesso!
+13/07/2023 02:17:38 PM - Dados 15 enviado com sucesso!
+13/07/2023 02:18:08 PM - Dados 16 enviado com sucesso!
+13/07/2023 02:18:32 PM - Dados 17 enviado com sucesso!
+13/07/2023 02:18:57 PM - Dados 18 enviado com sucesso!
+13/07/2023 02:19:26 PM - Dados 19 enviado com sucesso!
+13/07/2023 02:19:51 PM - Dados 20 enviado com sucesso!
+13/07/2023 02:20:19 PM - Dados 21 enviado com sucesso!
+13/07/2023 02:20:43 PM - Dados 22 enviado com sucesso!
+13/07/2023 02:21:08 PM - Dados 23 enviado com sucesso!
+13/07/2023 02:21:33 PM - Dados 24 enviado com sucesso!
+13/07/2023 02:22:02 PM - Dados 25 enviado com sucesso!
+13/07/2023 02:22:35 PM - Dados 26 enviado com sucesso!
+13/07/2023 02:23:04 PM - Dados 27 enviado com sucesso!
+13/07/2023 02:23:33 PM - Dados 28 enviado com sucesso!
+13/07/2023 02:24:02 PM - Dados 29 enviado com sucesso!
+13/07/2023 02:24:27 PM - Dados 30 enviado com sucesso!
+13/07/2023 02:24:56 PM - Dados 31 enviado com sucesso!
+13/07/2023 02:25:25 PM - Dados 32 enviado com sucesso!
+13/07/2023 02:25:54 PM - Dados 33 enviado com sucesso!
+13/07/2023 02:26:19 PM - Dados 34 enviado com sucesso!
+13/07/2023 02:26:47 PM - Dados 35 enviado com sucesso!
+13/07/2023 02:27:12 PM - Dados 36 enviado com sucesso!
+13/07/2023 02:27:41 PM - Dados 37 enviado com sucesso!
+13/07/2023 02:28:07 PM - Dados 38 enviado com sucesso!
+13/07/2023 02:28:33 PM - Dados 39 enviado com sucesso!
+13/07/2023 02:29:00 PM - Dados 40 enviado com sucesso!
+13/07/2023 02:29:05 PM - 127.0.0.1 - - [13/Jul/2023 14:29:05] "GET /historico-pedido-d-0323 HTTP/1.1" 200 -
+13/07/2023 03:55:04 PM -  * Detected change in 'C:\\Users\\Windows\\Documents\\Python\\api-dusnei-v3\\api\\views\\historico_pedido_d_0423_view.py', reloading
