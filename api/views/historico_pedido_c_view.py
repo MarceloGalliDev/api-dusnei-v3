@@ -37,7 +37,7 @@ class HistoricoPedidoCList(Resource):
                         5 if item.mprc_dcto_codigo == '7267' else (
                             11 if item.mprc_dcto_codigo == '7318' or 
                             item.mprc_dcto_codigo == '7319' else ''))),
-                'codfilial': item.mprc_fpgt_codigo,
+                'codfilial': item.mprc_unid_codigo,
                 'vlatend': item.mprc_prvenda,
                 'codcob': item.mprc_fpgt_codigo,
                 'vltotal': item.mprc_prvenda,
